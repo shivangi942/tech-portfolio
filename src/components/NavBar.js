@@ -26,8 +26,13 @@ export const NavBar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const onUpdateActiveLink = (value) => {
+    setActiveLink(value);
+  };
+
   return (
-    <Navbar bg="light" expand="lg">
+    //if scroll happen then className given scrolled else none. This will help us in adding the effects/ui based upon scrolling action like we can check if the className is scrolled and then add css and stuff to it
+    <Navbar bg="light" expand="lg" className={scrolled ? "scrolled" : ""}>
       <Container>
         <Navbar.Brand href="#home">
           <img src={""} alt="image" />
@@ -37,9 +42,37 @@ export const NavBar = () => {
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#skills">Skills</Nav.Link>
-            <Nav.Link href="#projects">Projects</Nav.Link>
+            {/* if they are active link then active classname will also be added otherwise only navbar-link classname
+
+            when they are click then update the active link to their classname so that we know which link is active            
+            */}
+            <Nav.Link
+              href="#home"
+              className={
+                activeLink === "home" ? "active navbar-link" : "navbar-link"
+              }
+              onClick={() => onUpdateActiveLink("home")}
+            >
+              Home
+            </Nav.Link>
+            <Nav.Link
+              href="#skills"
+              className={
+                activeLink === "skills" ? "active navbar-link" : "navbar-link"
+              }
+              onClick={() => onUpdateActiveLink("skills")}
+            >
+              Skills
+            </Nav.Link>
+            <Nav.Link
+              href="#projects"
+              className={
+                activeLink === "projects" ? "active navbar-link" : "navbar-link"
+              }
+              onClick={() => onUpdateActiveLink("projects")}
+            >
+              Projects
+            </Nav.Link>
           </Nav>
           <span className="navbar-text">
             <div className="social-icon">

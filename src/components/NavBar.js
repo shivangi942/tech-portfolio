@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
 import { NavBar, Container } from "react-bootstrap";
+import logo from "../assets/img/logo.svg";
+import navIcon1 from "../assets/img/nav-icon1.svg";
+import navIcon2 from "../assets/img/nav-icon2.svg";
+import navIcon3 from "../assets/img/nav-icon3.svg";
 
 export const NavBar = () => {
   //set which link/tab is active
@@ -35,7 +39,7 @@ export const NavBar = () => {
     <Navbar bg="light" expand="lg" className={scrolled ? "scrolled" : ""}>
       <Container>
         <Navbar.Brand href="#home">
-          <img src={""} alt="image" />
+          <img src={logo} alt="image" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav">
           <span className="navbar-toggler-icon"></span>
@@ -77,13 +81,13 @@ export const NavBar = () => {
           <span className="navbar-text">
             <div className="social-icon">
               <a href="#">
-                <img src={""} alt="" />
+                <img src={navIcon1} alt="" />
               </a>
               <a href="#">
-                <img src={""} alt="" />
+                <img src={navIcon2} alt="" />
               </a>
               <a href="#">
-                <img src={""} alt="" />
+                <img src={navIcon3} alt="" />
               </a>
             </div>
             <button className="vvd" onClick={() => console.log("works")}>
